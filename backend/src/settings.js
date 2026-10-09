@@ -1,0 +1,2 @@
+import 'dotenv/config';
+export const config={port:Number(process.env.PORT||8080),databaseUrl:process.env.DATABASE_URL,databaseSsl:process.env.DATABASE_SSL==='true',origin:process.env.FRONTEND_ORIGIN||'http://localhost:5173',openaiKey:process.env.OPENAI_API_KEY,model:process.env.OPENAI_VISION_MODEL||'gpt-4.1-mini',apifyToken:process.env.APIFY_TOKEN,instagramActor:process.env.INSTAGRAM_ACTOR_ID,metaActor:process.env.META_ACTOR_ID,demo:process.env.DEMO_MODE==='true',minScore:Number(process.env.MIN_MATCH_SCORE||60),pollMs:Number(process.env.WORKER_POLL_MS||2500)};

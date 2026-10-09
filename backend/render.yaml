@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: framefinder-api
+    runtime: node
+    plan: starter
+    buildCommand: npm ci || npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: APIFY_TOKEN
+        sync: false
+      - key: INSTAGRAM_ACTOR_INPUT
+        sync: false
+      - key: META_ACTOR_INPUT
+        sync: false
+  - type: worker
+    name: framefinder-worker
+    runtime: node
+    plan: starter
+    buildCommand: npm ci || npm install
+    startCommand: npm run worker
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: APIFY_TOKEN
+        sync: false
+      - key: INSTAGRAM_ACTOR_INPUT
+        sync: false
+      - key: META_ACTOR_INPUT
+        sync: false

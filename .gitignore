@@ -1,0 +1,38 @@
+
+# Dependencies
+**/node_modules/
+
+# Environment files / secrets
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+
+# Build outputs
+**/dist/
+**/build/
+**/.vite/
+.vercel/
+
+# Playwright downloads and reports
+**/playwright-report/
+**/test-results/
+
+# Logs and temporary files
+*.log
+npm-debug.log*
+*.tmp
+*.bak
+*.backup.js
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Private test product images
+backend/test-product.*
+backend/diagnose-*.json
