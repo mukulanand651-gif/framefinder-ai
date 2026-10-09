@@ -1,7 +1,17 @@
-FROM node:22-alpine
+
+FROM node:22-bookworm
+
 WORKDIR /app
+
 COPY package*.json ./
-RUN npm install --omit=dev
-COPY src ./src
-EXPOSE 8080
-CMD ["npm","start"]
+RUN npm ci --omit=dev
+RUN npx playwright install --with-deps chromium
+
+COPY . .
+
+ENV NODE_ENV=production
+ENV SELFHOSTED_HEADLESS=true
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
